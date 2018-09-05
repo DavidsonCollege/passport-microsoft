@@ -30,7 +30,9 @@ Microsoft's developer site.
     passport.use(new MicrosoftStrategy({
         clientID: 'applicationidfrommicrosoft',
         clientSecret: 'applicationsecretfrommicrosoft',
-        callbackURL: "http://localhost:3000/auth/microsoft/callback"
+        callbackURL: "http://localhost:3000/auth/microsoft/callback",
+        tenant: yourtenant.onmicrosoft.com, // Optional. For common authentication, use null.
+        scope: "openid email profile"
       },
       function(accessToken, refreshToken, profile, done) {
         User.findOrCreate({ userId: profile.id }, function (err, user) {
@@ -52,7 +54,7 @@ application:
     app.get('/auth/microsoft',
       passport.authenticate('microsoft'));
 
-    app.get('/auth/microsoft/callback', 
+    app.get('/auth/microsoft/callback',
       passport.authenticate('microsoft', { failureRedirect: '/login' }),
       function(req, res) {
         // Successful authentication, redirect home.
