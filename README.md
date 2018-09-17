@@ -8,6 +8,8 @@ By plugging into Passport, Microsoft authentication can be easily and unobtrusiv
 integrated into any application or framework that supports [Connect](http://www.senchalabs.org/connect/)-style
 middleware, including [Express](http://expressjs.com/).
 
+**The Davidson College fork has been modified to allow for tenant-restricted Azure AD app registration, and to patch a missing scope property in the Graph authorization request.**
+
 ## Install
 
 Install via [npm](https://www.npmjs.com/package/passport-microsoft)
