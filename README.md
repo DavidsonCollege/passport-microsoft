@@ -34,7 +34,7 @@ Microsoft's developer site.
         clientSecret: 'applicationsecretfrommicrosoft',
         callbackURL: "http://localhost:3000/auth/microsoft/callback",
         tenant: yourtenant.onmicrosoft.com, // Optional. For common authentication, use null.
-        scope: "openid email profile"
+        scope: "User.Read"
       },
       function(accessToken, refreshToken, profile, done) {
         User.findOrCreate({ userId: profile.id }, function (err, user) {
